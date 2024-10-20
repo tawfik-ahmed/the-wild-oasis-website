@@ -14,13 +14,13 @@ export default function Page() {
         className="object-cover object-top"
       />
 
-      <div className="relative z-10 text-center">
-        <h1 className="text-8xl text-primary-50 mb-10 tracking-tight font-normal">
+      <div className="relative z-10 translate-y-1/2 transform text-center md:transform-none">
+        <h1 className="mb-10 text-4xl font-normal tracking-tight text-primary-50 md:text-8xl">
           Welcome to paradise.
         </h1>
         <Link
           href="/cabins"
-          className="bg-accent-500 px-8 py-6 text-primary-800 text-lg font-semibold hover:bg-accent-600 transition-all"
+          className="bg-accent-500 px-8 py-6 text-lg font-semibold text-primary-800 transition-all hover:bg-accent-600 md:px-8"
         >
           Explore luxury cabins
         </Link>

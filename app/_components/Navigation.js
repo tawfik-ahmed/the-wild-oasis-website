@@ -1,25 +1,24 @@
-import Link from "next/link";
-import { auth } from "@/app/_lib/auth";
 import Image from "next/image";
+import Link from "next/link";
 
-export default async function Navigation() {
-  const session = await auth();
-
+export default function Navigation({ handleToggle, session }) {
   return (
     <nav className="z-10 text-xl">
-      <ul className="flex gap-16 items-center">
+      <ul className="mt-7 flex items-center justify-center gap-5 md:mt-0 md:flex-row md:gap-16">
         <li>
           <Link
+            onClick={handleToggle}
             href="/cabins"
-            className="hover:text-accent-400 transition-colors"
+            className="text-slate-300 transition-colors hover:text-black"
           >
             Cabins
           </Link>
         </li>
         <li>
           <Link
+            onClick={handleToggle}
             href="/about"
-            className="hover:text-accent-400 transition-colors"
+            className="text-slate-300 transition-colors hover:text-black"
           >
             About
           </Link>
@@ -27,23 +26,26 @@ export default async function Navigation() {
         <li>
           {session?.user?.image ? (
             <Link
+              onClick={handleToggle}
               href="/account"
-              className="hover:text-accent-400 transition-colors flex gap-4 items-center"
+              className="flex flex-col-reverse items-center gap-4 text-slate-300 transition-colors hover:text-black md:flex-row"
             >
-              <Image
-                src={session.user.image}
-                alt={session.user.name}
-                className="h-8 w-8 rounded-full"
-                referrerPolicy="no-referrer"
-                width={32}
-                height={32}
-              />
-              <span>Guest area</span>
+              <div className="relative">
+                <Image
+                  fill
+                  className="hidden rounded-full object-cover md:block"
+                  src={session.user.image}
+                  alt={session.user.name}
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <span className="mt-4 md:mt-0">Guest area</span>
             </Link>
           ) : (
             <Link
+              onClick={handleToggle}
               href="/account"
-              className="hover:text-accent-400 transition-colors"
+              className="text-slate-300 transition-colors hover:text-black"
             >
               Guest area
             </Link>

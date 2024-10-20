@@ -1,13 +1,14 @@
-import Navigation from '@/app/_components/Navigation';
-import Logo from '@/app/_components/Logo';
+import NavigationToggle from "@/app/_components/NavigationToggle";
+import { auth } from "../_lib/auth";
+import Logo from "./Logo";
 
-function Header() {
+async function Header() {
+  const session = await auth();
+
   return (
-    <header className='border-b border-primary-900 px-8 py-5'>
-      <div className='flex justify-between items-center max-w-7xl mx-auto'>
-        <Logo />
-        <Navigation />
-      </div>
+    <header className="flex items-center justify-between border-b border-primary-900 p-2 md:block md:px-8 md:py-5">
+      <NavigationToggle session={session} />
+      <Logo noTitle={true} />
     </header>
   );
 }

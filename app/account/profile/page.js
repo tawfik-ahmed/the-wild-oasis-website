@@ -13,11 +13,11 @@ export default async function Page() {
 
   return (
     <div>
-      <h2 className="font-semibold text-2xl text-accent-400 mb-4">
+      <h2 className="mb-4 text-2xl font-semibold text-accent-400">
         Update your guest profile
       </h2>
 
-      <p className="text-lg mb-8 text-primary-200">
+      <p className="mb-8 text-lg text-primary-200">
         Providing the following information will make your check-in process
         faster and smoother. See you soon!
       </p>
@@ -26,7 +26,7 @@ export default async function Page() {
         <SelectCountry
           name="nationality"
           id="nationality"
-          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+          className="w-full rounded-sm bg-primary-200 px-5 py-3 text-primary-800 shadow-sm"
           defaultCountry={guest.nationality}
         />
       </UpdateProfileForm>

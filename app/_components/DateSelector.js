@@ -9,13 +9,14 @@ import {
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { useReservation } from "./ReservationContext";
+import { useEffect, useState } from "react";
 
 function isAlreadyBooked(range, datesArr) {
   return (
     range.from &&
     range.to &&
     datesArr.some((date) =>
-      isWithinInterval(date, { start: range.from, end: range.to })
+      isWithinInterval(date, { start: range.from, end: range.to }),
     )
   );
 }
@@ -31,11 +32,23 @@ function DateSelector({ settings, cabin, bookedDates }) {
   const cabinPrice = numNights * (regularPrice - discount);
 
   const { minBookingLength, maxBookingLength } = settings;
+  const [months, setMonths] = useState(2);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setMonths(window.innerWidth < 640 ? 1 : 2);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="flex flex-col justify-between">
       <DayPicker
-        className="pt-12 place-self-center"
+        className="place-self-center pb-12 pt-12 lg:pb-0"
         mode="range"
         onSelect={setRange}
         selected={displayRange}
@@ -45,7 +58,7 @@ function DateSelector({ settings, cabin, bookedDates }) {
         fromDate={new Date()}
         toYear={new Date().getFullYear() + 5}
         captionLayout="dropdown"
-        numberOfMonths={2}
+        numberOfMonths={months}
         disabled={(currentDate) => {
           return (
             isPast(currentDate) ||
@@ -54,13 +67,13 @@ function DateSelector({ settings, cabin, bookedDates }) {
         }}
       />
 
-      <div className="flex items-center justify-between px-8 bg-accent-500 text-primary-800 h-[72px]">
+      <div className="flex flex-wrap items-center justify-center gap-2 bg-accent-500 p-2 text-primary-800 md:justify-between md:gap-0 md:px-8">
         <div className="flex items-baseline gap-6">
-          <p className="flex gap-2 items-baseline">
+          <p className="flex items-baseline gap-2">
             {discount > 0 ? (
               <>
                 <span className="text-2xl">${regularPrice - discount}</span>
-                <span className="line-through font-semibold text-primary-700">
+                <span className="font-semibold text-primary-700 line-through">
                   ${regularPrice}
                 </span>
               </>
@@ -84,7 +97,7 @@ function DateSelector({ settings, cabin, bookedDates }) {
 
         {range.from || range.to ? (
           <button
-            className="border border-primary-800 py-2 px-4 text-sm font-semibold"
+            className="border border-primary-800 px-4 py-2 text-sm font-semibold"
             onClick={resetRange}
           >
             Clear
