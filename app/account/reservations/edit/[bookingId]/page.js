@@ -41,7 +41,7 @@ export default async function Page({ params }) {
 
         <div className="space-y-2">
           <label htmlFor="observations">
-            Anything we should know about your stay?
+            Anything we should know about your stay? (optional)
           </label>
           <textarea
             name="observations"
