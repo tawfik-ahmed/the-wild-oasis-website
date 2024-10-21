@@ -5,13 +5,21 @@ import SubmitButton from "./SubmitButton";
 
 function UpdateProfileForm({ children, guest }) {
   const [form, setForm] = useState();
+  const [error, setError] = useState(null);
 
   const { fullName, email, countryFlag, nationalID, nationality } = guest;
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const result = await updateGuest(formData);
+    if (result.error) setError(result.error);
+  };
+
   return (
     <form
-      action={updateGuest}
-      className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-6 bg-primary-900 px-12 py-8 text-lg"
     >
       <div className="space-y-2">
         <label>Full name</label>
@@ -19,7 +27,7 @@ function UpdateProfileForm({ children, guest }) {
           disabled
           name="fullName"
           defaultValue={fullName}
-          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+          className="w-full rounded-sm bg-primary-200 px-5 py-3 text-primary-800 shadow-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>
 
@@ -29,7 +37,7 @@ function UpdateProfileForm({ children, guest }) {
           disabled
           name="email"
           defaultValue={email}
-          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+          className="w-full rounded-sm bg-primary-200 px-5 py-3 text-primary-800 shadow-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>
 
@@ -51,11 +59,12 @@ function UpdateProfileForm({ children, guest }) {
         <input
           name="nationalID"
           defaultValue={nationalID}
-          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+          className="w-full rounded-sm bg-primary-200 px-5 py-3 text-primary-800 shadow-sm"
         />
+        {error && <p className="text-red-500">{error}</p>}
       </div>
 
-      <div className="flex justify-end items-center gap-6">
+      <div className="flex items-center justify-end gap-6">
         <SubmitButton pendingText="Updating...">Update Profile</SubmitButton>
       </div>
     </form>

@@ -36,7 +36,7 @@ function DateSelector({ settings, cabin, bookedDates }) {
 
   useEffect(() => {
     const handleResize = () => {
-      setMonths(window.innerWidth < 640 ? 1 : 2);
+      setMonths(window.innerWidth < 760 ? 1 : 2);
     };
 
     handleResize();
@@ -48,9 +48,9 @@ function DateSelector({ settings, cabin, bookedDates }) {
   return (
     <div className="flex flex-col justify-between">
       <DayPicker
-        className="place-self-center pb-12 pt-12 lg:pb-0"
+        className="place-self-center py-12"
         mode="range"
-        onSelect={setRange}
+        onDayClick={setRange}
         selected={displayRange}
         min={minBookingLength + 1}
         max={maxBookingLength}

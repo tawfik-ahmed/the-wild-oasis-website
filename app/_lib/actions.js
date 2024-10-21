@@ -18,7 +18,7 @@ export async function updateGuest(formData) {
   const [nationality, countryFlag] = formData.get("nationality").split("%");
 
   if (!/^[a-zA-Z0-9]{6,12}$/.test(nationalID))
-    throw new Error("Please provide a vaild national id");
+    return { error: "Please provide a valid national ID" };
 
   const updateData = { nationalID, nationality, countryFlag };
   await updateDataGuest(session.user.guestId, updateData);
