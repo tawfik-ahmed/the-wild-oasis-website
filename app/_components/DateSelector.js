@@ -13,22 +13,20 @@ import { useEffect, useState } from "react";
 
 function isAlreadyBooked(range, datesArr) {
   return (
-    range.from &&
-    range.to &&
+    range?.from &&
+    range?.to &&
     datesArr.some((date) =>
-      isWithinInterval(date, { start: range.from, end: range.to }),
+      isWithinInterval(date, { start: range?.from, end: range?.to }),
     )
   );
 }
 
 function DateSelector({ settings, cabin, bookedDates }) {
   const { range, setRange, resetRange } = useReservation();
-  const displayRange = isAlreadyBooked(range, bookedDates)
-    ? { from: undefined, to: undefined }
-    : range;
+  const displayRange = isAlreadyBooked(range, bookedDates) ? {} : range;
 
   const { regularPrice, discount } = cabin;
-  const numNights = differenceInDays(displayRange.to, displayRange.from);
+  const numNights = differenceInDays(displayRange?.to, displayRange?.from);
   const cabinPrice = numNights * (regularPrice - discount);
 
   const { minBookingLength, maxBookingLength } = settings;
@@ -50,13 +48,13 @@ function DateSelector({ settings, cabin, bookedDates }) {
       <DayPicker
         className="place-self-center py-12"
         mode="range"
-        onDayClick={setRange}
+        onSelect={setRange}
         selected={displayRange}
         min={minBookingLength + 1}
         max={maxBookingLength}
-        fromMonth={new Date()}
-        fromDate={new Date()}
-        toYear={new Date().getFullYear() + 5}
+        startMonth={new Date()}
+        hidden={{ before: new Date() }}
+        endMonth={(new Date().getFullYear() + 5, 0)}
         captionLayout="dropdown"
         numberOfMonths={months}
         disabled={(currentDate) => {
@@ -95,7 +93,7 @@ function DateSelector({ settings, cabin, bookedDates }) {
           ) : null}
         </div>
 
-        {range.from || range.to ? (
+        {range?.from || range?.to ? (
           <button
             className="border border-primary-800 px-4 py-2 text-sm font-semibold"
             onClick={resetRange}
