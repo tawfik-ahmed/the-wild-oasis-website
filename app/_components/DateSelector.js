@@ -47,6 +47,11 @@ function DateSelector({ settings, cabin, bookedDates }) {
     <div className="flex flex-col justify-between">
       <DayPicker
         className="place-self-center py-12"
+        classNames={{
+          selected: "rounded-full",
+          range_start: "rounded-full bg-accent-500",
+          range_end: "rounded-full bg-accent-500",
+        }}
         mode="range"
         onSelect={setRange}
         selected={displayRange}

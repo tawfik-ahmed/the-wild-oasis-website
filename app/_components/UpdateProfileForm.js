@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { updateGuest } from "../_lib/actions";
 import SubmitButton from "./SubmitButton";
+import { revalidatePath } from "next/cache";
 
 function UpdateProfileForm({ children, guest }) {
   const [form, setForm] = useState();
@@ -13,7 +14,8 @@ function UpdateProfileForm({ children, guest }) {
     e.preventDefault();
     const formData = new FormData(e.target);
     const result = await updateGuest(formData);
-    if (result.error) setError(result.error);
+    if (result?.error) setError(result?.error);
+    else window.location.reload();
   };
 
   return (
