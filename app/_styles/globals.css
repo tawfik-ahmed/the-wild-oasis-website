@@ -30,9 +30,12 @@
   }
 }
 
-/* For data picker */
 .rdp-root {
   --rdp-accent-color: #c69963 !important;
   --rdp-accent-background-color: #c69963 !important;
   margin: 0 !important;
+}
+
+.rdp-caption_label {
+  padding-left: 15px;
 }
