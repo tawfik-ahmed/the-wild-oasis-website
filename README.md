@@ -27,7 +27,7 @@ Users can log in using their Google accounts, ensuring fast and secure access. T
 
 The app allows users to book cabins and track their status in real-time. Users can monitor whether their booking is still pending or approved, ensuring transparency throughout the process.
 
-### **📊 Reservation**
+### **📊 Reservations**
 
 Provides an overview of active bookings and pending approvals. It helps users manage their reservations efficiently, displaying essential details like dates and cabin information.
 
