@@ -26,6 +26,7 @@ Provides an overview of active bookings and pending approvals. It helps users ma
 
 ### **⚙️ Profile Settings**  
 Users can personalize their profiles by updating personal information, This feature ensures a secure and customized user experience.  
+
 ---
 
 <p>This app was developed as part of the Udemy course by Jonas Schmedtmann. Special thanks to Jonas for guidance throughout the course.</p>
