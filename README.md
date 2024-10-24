@@ -1,4 +1,4 @@
-<h1 align="center">🏞️ The Wild Oasis Customers</h1>
+<h2 align="center">Welcome to The Wild Oasis! 🌴🏨</h2>
 
 ## Overview  
 The Wild Oasis Customers is a web platform for booking cabins. Users can log in with their Google accounts, submit booking requests, and track them until approval by the official company.
@@ -21,10 +21,11 @@ Users can log in using their Google accounts, ensuring fast and secure access. T
 ### **🏕️ Booking Requests and Tracking**  
 The app allows users to book cabins and track their status in real-time. Users can monitor whether their booking is still pending or approved, ensuring transparency throughout the process.  
 
-### **📊 Reservation **  
+### **📊 Reservation**  
 Provides an overview of active bookings and pending approvals. It helps users manage their reservations efficiently, displaying essential details like dates and cabin information.  
 
 ### **⚙️ Profile Settings**  
 Users can personalize their profiles by updating personal information, This feature ensures a secure and customized user experience.  
 
-This app was developed as part of the Udemy course by Jonas Schmedtmann. Special thanks to Jonas for guidance throughout the course.
+
+<p>This app was developed as part of the Udemy course by Jonas Schmedtmann. Special thanks to Jonas for guidance throughout the course.</p>
