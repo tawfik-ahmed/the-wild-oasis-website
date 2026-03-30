@@ -8,30 +8,30 @@ The Wild Oasis Customers is a web platform for booking cabins. Users can log in 
 
 ## Technologies
 
-- ** Next.js**: Fullstack framework for building and rendering pages.
-- ** Tailwind CSS**: Responsive, utility-first CSS framework.
-- ** Supabase**: Backend for database and authentication.
-- ** React with Next.js**: Client-side rendering for interactive UI.
-- ** Auth.js**: Authentication via Google accounts.
-- ** Server Actions**: Handle form submissions and backend logic.
-- ** Heroicons**: Icons for an intuitive user interface.
-- ** Context API**: Global state management across the app.
+- **Next.js**: Fullstack framework for building and rendering pages.
+- **Tailwind CSS**: Responsive, utility-first CSS framework.
+- **Supabase**: Backend for database and authentication.
+- **React with Next.js**: Client-side rendering for interactive UI.
+- **Auth.js**: Authentication via Google accounts.
+- **Server Actions**: Handle form submissions and backend logic.
+- **Heroicons**: Icons for an intuitive user interface.
+- **Context API**: Global state management across the app.
 
 ##  Features
 
-### ** User Authentication**
+### **User Authentication**
 
 Users can log in using their Google accounts, ensuring fast and secure access. This eliminates manual account creation and simplifies user management.
 
-### ** Booking Requests and Tracking**
+### **Booking Requests and Tracking**
 
 The app allows users to book cabins and track their status in real-time. Users can monitor whether their booking is still pending or approved, ensuring transparency throughout the process.
 
-### ** Reservations**
+### **Reservations**
 
 Provides an overview of active bookings and pending approvals. It helps users manage their reservations efficiently, displaying essential details like dates and cabin information.
 
-### ** Profile Settings**
+### **Profile Settings**
 
 Users can personalize their profiles by updating personal information, This feature ensures a secure and customized user experience.
 
