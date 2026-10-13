@@ -24,6 +24,7 @@ const authConfig = {
 
         return true;
       } catch {
+        console.error("Google sign-in failed:", error);
         return false;
       }
     },
