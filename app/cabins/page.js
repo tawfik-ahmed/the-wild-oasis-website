@@ -5,6 +5,7 @@ import Filter from "../_components/Filter";
 import ReservationReminder from "../_components/ReservationReminder";
 
 // export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Cabins",
